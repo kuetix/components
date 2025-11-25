@@ -1,0 +1,32 @@
+module tests.example
+
+extends "resolvers"
+
+workflow wsl_example_assert_int_test {
+  start: Integer
+
+  state Integer {
+    action jwt/token.GenerateToken(jwtIssuer: "<<jwtIssuer>>", encryptedId: "<<encryptedId>>") as Token
+    on success -> FinishTrue
+    on error -> FinishFalse
+  }
+
+  state FinishTrue(Token) {
+    action response/ResponseValue(message: $Token, statusCode: 200)
+    on success -> LastResponse
+    on error -> LastResponse
+  }
+
+  state FinishFalse {
+    action response/False(statusCode: 400)
+    on success -> LastResponse
+    on error -> LastResponse
+  }
+
+  state LastResponse {
+    action response/End()
+    end ok
+  }
+}
+
+

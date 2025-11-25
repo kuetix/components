@@ -1,0 +1,10 @@
+{
+  "resolvers": [
+    "jwt/token",
+    "services/common/pagination",
+    "services/common/datetimeAt",
+    "services/common/entity",
+    "services/common/assert",
+    "services/common/response"
+  ]
+}
