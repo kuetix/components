@@ -2,7 +2,7 @@
 package modules
 
 import (
-	transitionsJwt "github.com/kuetix/components/modules/jwt/transitions"
+	transitionsJwt "github.com/kueti
 	di "github.com/kuetix/container"
 	"github.com/kuetix/engine/pkg/defines"
 	"github.com/kuetix/engine/pkg/workflow"
